@@ -62,6 +62,15 @@ class TradingDaysSheetsApi {
     return lastRow == null ? 0 : int.tryParse(lastRow.first) ?? 0;
   }
 
+  static Future<List<TradingDay>> getAll() async {
+    if (_testSheet == null) return <TradingDay>[];
+
+    final tradingDays = await _testSheet!.values.map.allRows();
+    return tradingDays == null
+        ? <TradingDay>[]
+        : tradingDays.map(TradingDay.fromJson).toList();
+  }
+
   //get values of one trading day using id
   static Future<TradingDay?> getById(int id) async {
     if (_testSheet == null) return null;

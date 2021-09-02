@@ -3,11 +3,13 @@ import 'package:thesis2/model/trading_day.dart';
 import 'button_widget.dart';
 
 class TradingDayFormWidget extends StatefulWidget {
+  final TradingDay? tradingDay;
   //send trading day out
   final ValueChanged<TradingDay> onSavedTradingDay;
 
   const TradingDayFormWidget({
     Key? key,
+    this.tradingDay,
     required this.onSavedTradingDay,
   }) : super(key: key);
 
@@ -32,15 +34,33 @@ class _TradingDayFormWidgetState extends State<TradingDayFormWidget> {
     initTradingDay();
   }
 
+  @override
+  void didUpdateWidget(covariant TradingDayFormWidget oldWidget) {
+    super.didUpdateWidget(oldWidget);
+
+    initTradingDay();
+  }
+
   //define default values
   void initTradingDay() {
-    controllerDate = TextEditingController();
-    controllerOpen = TextEditingController();
-    controllerHigh = TextEditingController();
-    controllerLow = TextEditingController();
-    controllerClose = TextEditingController();
-    controllerAdjClose = TextEditingController();
-    controllerVolume = TextEditingController();
+    final date = widget.tradingDay == null ? '' : widget.tradingDay!.date;
+    final open = widget.tradingDay == null ? '' : widget.tradingDay!.open;
+    final high = widget.tradingDay == null ? '' : widget.tradingDay!.high;
+    final low = widget.tradingDay == null ? '' : widget.tradingDay!.low;
+    final close = widget.tradingDay == null ? '' : widget.tradingDay!.close;
+    final adjClose =
+        widget.tradingDay == null ? '' : widget.tradingDay!.adjClose;
+    final volume = widget.tradingDay == null ? '' : widget.tradingDay!.volume;
+
+    setState(() {
+      controllerDate = TextEditingController(text: date);
+      controllerOpen = TextEditingController(text: open);
+      controllerHigh = TextEditingController(text: high);
+      controllerLow = TextEditingController(text: low);
+      controllerClose = TextEditingController(text: close);
+      controllerAdjClose = TextEditingController(text: adjClose);
+      controllerVolume = TextEditingController(text: volume);
+    });
   }
 
   @override

@@ -57,6 +57,7 @@ class TradingDay {
         adjClose: adjClose ?? this.adjClose,
         volume: volume ?? this.volume,
       );
+
 //fix values from json method
   static TradingDay fromJson(Map<String, dynamic> json) => TradingDay(
         id: jsonDecode(json[TradingDayFields.id]),
