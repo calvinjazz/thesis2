@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+final epoch = new DateTime(1899 - 12 - 30);
+
 class TradingDayFields {
   static final String id = 'id';
   static final String date = 'date';

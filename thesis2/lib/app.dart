@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thesis2/screens/psei_chart/psei_chart.dart';
+//import 'package:thesis2/screens/psei_chart/psei_chart.dart';
 import 'package:thesis2/screens/psei_chart/fetch_psei_chart.dart';
 
 class App extends StatelessWidget {
