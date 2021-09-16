@@ -1,0 +1,41 @@
+<h1>Chart should be here</h1>
+{{graph|safe}}
+<h3>Dataset Head:</h3>
+{{datasetHead|safe}}
+<h3>Dataset Describe:</h3>
+{{datasetDescribe|safe}}
+<h3>coef</h3>
+{{coef|safe}}
+<h3>X test</h3>
+{{xtest|safe}}
+<h3>Actual Vs Prediction</h3>
+{{dfr|safe}}
+<h3>score</h3>
+{{score|safe}}
+<h3>Mean Absolute Error:</h3>
+{{mae|safe}}
+<h3>Mean Squared Error:</h3>
+{{mse|safe}}
+<h3>Root Mean Squared Error:</h3>
+{{rmse|safe}}
+<h3>Bar Graph:</h3>
+{{barGraph|safe}}
+
+
+
+<h1>PREDICT VALUE:</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    <p>Open:</p>
+    <input type="text" name="userOpen"/>
+    <p>High:</p>
+    <input type="text" name="userHigh"/>
+    <p>Low:</p>
+    <input type="text" name="userLow"/>
+    <p>Volume:</p>
+    <input type="text" name="userVolume"/><br>
+    <input type="submit"/>
+</form>
+
+<h3>Predicted Value:</h3>
+<h3>{{predictedValue}}</h3>
