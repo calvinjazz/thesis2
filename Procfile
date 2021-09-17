@@ -1,1 +1,1 @@
-web: gunicorn psei.wsgi --log-file -
+web: gunicorn psei.psei.wsgi --log-file -
